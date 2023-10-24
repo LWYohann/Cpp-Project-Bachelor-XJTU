@@ -1,0 +1,49 @@
+# Project: WGProject
+# Makefile created by Dev-C++ 5.8.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o WGMessage.o actions.o WGSystem.o interface.o changeActions.o WindMessage.o WindSystem.o
+LINKOBJ  = main.o WGMessage.o actions.o WGSystem.o interface.o changeActions.o WindMessage.o WindSystem.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = WGProject.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+WGMessage.o: WGMessage.cpp
+	$(CPP) -c WGMessage.cpp -o WGMessage.o $(CXXFLAGS)
+
+actions.o: actions.cpp
+	$(CPP) -c actions.cpp -o actions.o $(CXXFLAGS)
+
+WGSystem.o: WGSystem.cpp
+	$(CPP) -c WGSystem.cpp -o WGSystem.o $(CXXFLAGS)
+
+interface.o: interface.cpp
+	$(CPP) -c interface.cpp -o interface.o $(CXXFLAGS)
+
+changeActions.o: changeActions.cpp
+	$(CPP) -c changeActions.cpp -o changeActions.o $(CXXFLAGS)
+
+WindMessage.o: WindMessage.cpp
+	$(CPP) -c WindMessage.cpp -o WindMessage.o $(CXXFLAGS)
+
+WindSystem.o: WindSystem.cpp
+	$(CPP) -c WindSystem.cpp -o WindSystem.o $(CXXFLAGS)
